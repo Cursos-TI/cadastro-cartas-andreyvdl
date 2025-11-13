@@ -36,6 +36,7 @@ void lerEntrada(Trunfo *cartas, size_t posicao) {
   lerArea(cartas + posicao);
   lerPIB(cartas + posicao);
   lerPontosTuristicos(cartas + posicao);
+  printf("\n"); // por questões de legibilidade no terminal
 }
 
 int main() {
@@ -45,7 +46,7 @@ int main() {
   // Área para entrada de dados
   for (size_t i = 0; i < 2; ++i) {
     cartas[i].id = i + 1;
-    printf("Por favor insira as informações da carta carta conforme requisitado!\n");
+    printf("Por favor insira as informações da carta %zu conforme requisitado!\n", i + 1);
     lerEntrada(cartas, i);
   }
 

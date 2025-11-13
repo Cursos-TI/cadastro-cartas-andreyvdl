@@ -1,6 +1,6 @@
 #include "CartasSuperTrunfo.h"
+#include <stdlib.h>
 #include <stdio.h>
-#include <stddef.h>
 #include <ctype.h>
 #include <string.h>
 
@@ -12,7 +12,9 @@ void lerEstado(Trunfo *carta) {
 
   while (1) {
     printf("Insira o Estado, deve ser uma letra de 'A' a 'H': ");
-    scanf("%c", &estado);
+    if (scanf("%c", &estado) == EOF)
+      exit(1);
+
     estado = toupper(estado);
 
     if (estado < 'A' || estado > 'H') {
@@ -37,7 +39,9 @@ void lerCodigo(Trunfo *cartas, size_t posicao) {
       "deve ter três caracteres, o primeiro sendo o mesmo do estado "
       "e os outros dois um numero de 01 a 04: "
     );
-    scanf("%3s", codigo_da_carta);
+    if (scanf("%3s", codigo_da_carta) == EOF)
+      exit(1);
+
     codigo_da_carta[0] = toupper(codigo_da_carta[0]);
 
     if (codigoInvalido(codigo_da_carta, cartas, posicao)) {
@@ -63,7 +67,8 @@ void lerNome(Trunfo *carta) {
       "Insira o nome da cidade, limite de 255 caracteres, "
       "os caracteres extras serão ignorados: "
     );
-    scanf("%255[^\n]", nome_da_cidade);
+    if (scanf("%255[^\n]", nome_da_cidade) == EOF)
+      exit(1);
 
     if (strlen(nome_da_cidade) == 0) {
       printf("O nome da cidade não pode ser deixado em branco!\n");
@@ -82,7 +87,8 @@ void lerPopulacao(Trunfo *carta) {
 
   while (1) {
     printf("Insira o número de habitantes, como número inteiro: ");
-    scanf("%d", &populacao);
+    if (scanf("%d", &populacao) == EOF)
+      exit(1);
 
     if (populacao < 0) {
       printf("População não pode ser negativa!\n");
@@ -102,7 +108,8 @@ void lerArea(Trunfo *carta) {
 
   while (1) {
     printf("Insira a área da cidade em Km² no formato decimal (ex: 120.64): ");
-    scanf("%f", &area);
+    if (scanf("%f", &area) == EOF)
+      exit(1);
 
     if (area < 0.f) {
       printf("Área não pode ser negativa!\n");
@@ -122,7 +129,8 @@ void lerPIB(Trunfo *carta) {
 
   while (1) {
     printf("Insira o PIB em bilhões no formato decimal (ex: 28.16): ");
-    scanf("%f", &pib);
+    if (scanf("%f", &pib) == EOF)
+      exit(1);
 
     if (pib < 0.f) {
       printf("PIB não pode ser negativo!\n");
@@ -142,7 +150,8 @@ void lerPontosTuristicos(Trunfo *carta) {
 
   while (1) {
     printf("Insira o número de pontos turísticos da cidade, como número inteiro: ");
-    scanf("%d", &pontos_turisticos);
+    if (scanf("%d", &pontos_turisticos) == EOF)
+      exit(1);
 
     if (pontos_turisticos < 0) {
       printf("Pontos turísticos não pode ser negativo!\n");
