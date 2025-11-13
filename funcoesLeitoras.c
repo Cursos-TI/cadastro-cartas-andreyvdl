@@ -90,8 +90,8 @@ void lerPopulacao(Trunfo *carta) {
     if (scanf("%d", &populacao) == EOF)
       exit(1);
 
-    if (populacao < 0) {
-      printf("População não pode ser negativa!\n");
+    if (populacao < 1) {
+      printf("População não pode ser menor ou igual a 0!\n");
       populacao = 0;
       while((cursor = getchar()) != '\n' && cursor != EOF);
     } else {
@@ -111,8 +111,8 @@ void lerArea(Trunfo *carta) {
     if (scanf("%f", &area) == EOF)
       exit(1);
 
-    if (area < 0.f) {
-      printf("Área não pode ser negativa!\n");
+    if (area < 0.000001f) { // 6 de precisão deve ser o suficiente
+      printf("Área não pode ser igual ou menor a 0!\n");
       area = 0.f;
       while((cursor = getchar()) != '\n' && cursor != EOF);
     } else {
