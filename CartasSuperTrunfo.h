@@ -14,7 +14,7 @@
  */
 typedef struct Trunfo {
     char nome_da_cidade[CIDADE_TAMANHO], codigo_da_carta[CODIGO_TAMANHO];
-    float area, pib;
+    float area, pib, densidade_populacional, pib_per_capita;
     int num_pontos_turisticos, populacao, id;
     char estado;
 } Trunfo;
