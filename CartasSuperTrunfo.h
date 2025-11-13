@@ -11,11 +11,14 @@
  * Área (em km²): A área da cidade em quilômetros quadrados. Tipo: float
  * PIB: O Produto Interno Bruto da cidade. Tipo: float
  * Número de Pontos Turísticos: A quantidade de pontos turísticos na cidade. Tipo: int
+ *
+ * nivel 3 altera a populacao para unsigned long int.
  */
 typedef struct Trunfo {
     char nome_da_cidade[CIDADE_TAMANHO], codigo_da_carta[CODIGO_TAMANHO];
-    float area, pib, densidade_populacional, pib_per_capita;
-    int num_pontos_turisticos, populacao, id;
+    unsigned long int populacao;
+    float area, pib, densidade_populacional, pib_per_capita, super_poder;
+    int num_pontos_turisticos, id;
     char estado;
 } Trunfo;
 

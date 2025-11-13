@@ -82,16 +82,16 @@ void lerNome(Trunfo *carta) {
 }
 
 void lerPopulacao(Trunfo *carta) {
-  int populacao = 0;
+  unsigned long int populacao = 0;
   int cursor = 0;
 
   while (1) {
     printf("Insira o número de habitantes, como número inteiro: ");
-    if (scanf("%d", &populacao) == EOF)
+    if (scanf("%lu", &populacao) == EOF)
       exit(1);
 
-    if (populacao < 1) {
-      printf("População não pode ser menor ou igual a 0!\n");
+    if (populacao == 0) {
+      printf("População não pode ser igual a 0!\n");
       populacao = 0;
       while((cursor = getchar()) != '\n' && cursor != EOF);
     } else {
