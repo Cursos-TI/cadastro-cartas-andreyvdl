@@ -166,19 +166,19 @@ void lerPontosTuristicos(Trunfo *carta) {
 }
 
 static int codigoInvalido(char *codigo_input, Trunfo *cartas, size_t posicao) {
-    if (strlen(codigo_input) < 3)
-        return -1;
-    if (codigo_input[0] != cartas[posicao].estado)
-        return -1;
-    if (codigo_input[1] != '0')
-        return -1;
-    if (codigo_input[2] < '1' || codigo_input[2] > '4')
-        return -1;
+  if (strlen(codigo_input) < 3)
+    return -1;
+  else if (codigo_input[0] != cartas[posicao].estado)
+    return -1;
+  else if (codigo_input[1] != '0')
+    return -1;
+  else if (codigo_input[2] < '1' || codigo_input[2] > '4')
+    return -1;
 
-    for (size_t i = 0; i < posicao; ++i) {
-        if (strcmp(codigo_input, cartas[i].codigo_da_carta) == 0)
-            return -1;
-    }
+  for (size_t i = 0; i < posicao; ++i) {
+      if (strcmp(codigo_input, cartas[i].codigo_da_carta) == 0)
+          return -1;
+  }
 
-    return 0;
+  return 0;
 }
